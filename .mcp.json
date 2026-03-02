@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "hevy-mcp": {
+      "command": "/home/Ioan/.nvm/versions/node/v25.2.1/bin/node",
+      "args": ["--env-file", "/home/Ioan/Documents/repos/_external/hevy-mcp/.env", "/home/Ioan/Documents/repos/_external/hevy-mcp/dist/cli.mjs"],
+      "cwd": "/home/Ioan/Documents/repos/_external/hevy-mcp"
+    }
+  }
+}
