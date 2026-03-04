@@ -77,7 +77,13 @@ After outputting the workout, ask: **"Happy with this, or want any changes?"**
 
 - If they want changes, apply them and ask again.
 - Once they're happy, ask: **"Should I create a new routine in Hevy?"**
-- If yes, fetch the existing routine using `get-routines` to find the matching Day X routine, then call `creatine-routine` with the new exercises and sets. The name of the routine should be "Day X - DAY/MONTH". Use the `exerciseTemplateId` values already seen in the last workout data — no need to look them up again. Set `reps` and `repRange: {start: reps, end: reps}` to the target rep count. Set `weightKg` to the target weight. For half-rep finisher sets, add them as additional sets with `reps` set to the target half-rep count. Mention in the notes "Last X sets are half reps"
+- If yes, fetch the existing routine using `get-routines` to find the matching Day X routine, then call `create-routine` with the new exercises and sets. The name of the routine should be "Day X - DAY/MONTH". Use the `exerciseTemplateId` values already seen in the last workout data — no need to look them up again. Set `reps` and `repRange: {start: reps, end: reps}` to the target rep count. Set `weightKg` to the target weight. For half-rep finisher sets, add them as additional sets with `reps` set to the target half-rep count.
+
+  **Always populate the notes field for every exercise** — never leave it blank. The note should be a compact summary useful at-a-glance during the session. Include: sets × rep range, any half-rep instructions, and a short cue about progression or intent. Examples:
+  - `"3 × 8–10; last set + 3 half reps (bottom); progressed from 25kg"`
+  - `"4 × 6–8; +2.5kg — topped rep range last time"`
+  - `"3 × 12–15; same weight — fell short on set 3 last time"`
+  - `"2 × 10; felt too light last session — up to 15kg"`
 
 
 -----------------
