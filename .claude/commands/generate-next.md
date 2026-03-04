@@ -16,6 +16,34 @@ Follow these progression rules:
 3. **Half reps as finishers:** For isolation exercises (e.g., curls, lateral raises, flyes), add a set of half reps at the end to maximize time under tension. Don't add half reps to heavy compound lifts.
 4. **Cap weight jumps at 25% of current load:** When increasing weight, the increment must not exceed 25% of the current working weight. If the next available dumbbell/plate increment would exceed this (e.g. 2.5kg → 5kg is a 100% jump), do NOT increase weight — keep the same weight and note the rep ceiling was hit, or add a set instead.
 
+---
+
+## Warm-up protocol
+
+The routine file may include a **Warm-up Sets** column. When it does:
+- The percentages are of the working weight for that exercise.
+- Warm-up sets are NOT to failure — brisk and controlled, saving energy for working sets.
+- Rest ~90 sec after the last warm-up before the first working set.
+- Include the warm-up sets in the output under each relevant exercise so I know to do them.
+- Exercises with `—` in the warm-up column need no warm-up (muscle is already primed from earlier in the session).
+
+## Rest periods
+
+The routine file may include a **Rest Between Sets** column. When it does:
+- Include the prescribed rest duration in the output for each exercise.
+- Compounds (bench, squat, deadlift, rows, pulldowns) typically require 2.5–3.5 min — this is intentional, especially in a caloric deficit.
+- Isolation exercises (curls, lateral raises, extensions, abs) use 45–90 sec.
+- Don't shorten rest periods to save time — inadequate rest causes performance to crater across sets and undermines progressive overload.
+
+## Partial reps
+
+The routine file may include a **Partial Reps?** column. General rules that apply across all days:
+- **Only on the last set** of an isolation exercise — never on compounds, never on sets 1 or 2.
+- **Only after hitting the minimum target reps** in full ROM. If the minimum wasn't reached, stop the set — don't extend with partials.
+- **3–5 half reps maximum** — go straight from full reps to partials with no rest-pause.
+- Where the column specifies a position (e.g. "bottom-half", "stretched position"), use that; it determines where in the ROM the partial is performed.
+- Exercises marked "No" in the partial reps column should always be full ROM — no exceptions.
+
 Output format:
 - Exercise name
 - Sets × Reps (with weight)
