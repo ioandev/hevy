@@ -50,6 +50,16 @@ The routine file may include a **Partial Reps?** column. General rules that appl
 - Where the column specifies a position (e.g. "bottom-half", "stretched position"), use that; it determines where in the ROM the partial is performed.
 - Exercises marked "No" in the partial reps column should always be full ROM — no exceptions.
 
+## Cycling (every session)
+
+Every routine ends with a cycling block — always two sets, fixed targets:
+- Set 1: 2.6 km in 16 minutes
+- Set 2: 2.5 km in 15 minutes
+
+Include this in the proposed workout output and in the Hevy routine when creating it. To get the `exerciseTemplateId` for cycling, search `get-exercise-templates` if it wasn't in the last workout. Notes for cycling: `"Set 1: 2.6km / 16min; Set 2: 2.5km / 15min"`.
+
+---
+
 Output format:
 - Exercise name
 - Sets × Reps (with weight)
