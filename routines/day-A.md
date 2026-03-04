@@ -1,4 +1,4 @@
-**Day A — Strength and width focus**
+## Day A — Strength and width focus
 
 | Exercise | Working Sets × Reps | Warm-up Sets | Rest Between Sets | Partial Reps? |
 | -------- | ------------------- | ------------ | ----------------- | ------------- |
