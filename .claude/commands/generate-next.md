@@ -8,7 +8,7 @@ Once I answer, load the corresponding routine from the `routines/` folder:
 The routine file defines the exercises, target rep ranges, and muscle focus for that day. Use it as the blueprint — these are the exercises to program, in order.
 
 Then fetch two things using MCP:
-1. **My last workout for that day** (search recent workouts for the matching day) — to get actual sets, reps, RPE, and weights performed.
+1. **My last workout for that day** (search recent workouts for the matching day) — to get actual sets, reps, RPE, weights performed, and any notes I left on exercises. **Exercise notes take high priority** — if I noted why I used a lighter weight, flagged something to change, or said what I want next time, honour that directly in the next session.
 2. **The most recent Hevy routine for that day** (use `get-routines`, find the most recent "Day X" routine by date in the name) — to see what was planned for that session.
 
 **Before proposing the next session**, compare the last workout against the routine that was active for it and give a brief performance summary. For each exercise, note whether targets were hit, exceeded, or missed. Use this to give honest, specific feedback — e.g. "You hit all your bench targets", "You fell 2 reps short on lat pulldowns on the last set — consider staying at this weight", "You crushed lateral raises — room to progress". End with an overall verdict on how the session went.
