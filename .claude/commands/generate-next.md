@@ -70,15 +70,13 @@ Example output:
 Here's your next Day A session, based on today's workout:
   ---             
   Bench Press (Barbell)
-  4 × 6–8 @ 27.5kg
-  +2.5kg — hit 4×8 (top of range) across all sets
-  Before: 4x8 @ 25kg
+  Nex time you do: 4 × 6–8 @ 27.5kg
+  Expectation: +2.5kg — hit 4×8 (top of range) across all sets
+  Before you did: 4x8 @ 25kg
   
   ---
   Lat Pulldown (Cable)
-  3 × 8–10 @ 29kg
-  +2.5kg — hit 3×10 at RPE 6 across the board, lots of room left
-  Before: 1x10 @ 25kg, 1x10 @25kg, 1x5 @25kg
+  ...
 ```
 
 Note: The second lines for each exercise are a faded colour in the console.
