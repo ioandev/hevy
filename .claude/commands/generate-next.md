@@ -11,9 +11,25 @@ Then fetch two things using MCP:
 1. **My last workout for that day** (search recent workouts for the matching day) — to get actual sets, reps, RPE, weights performed, and any notes I left on exercises. **Exercise notes take high priority** — if I noted why I used a lighter weight, flagged something to change, or said what I want next time, honour that directly in the next session.
 2. **The most recent Hevy routine for that day** (use `get-routines`, find the most recent "Day X" routine by date in the name) — to see what was planned for that session.
 
-**Before proposing the next session**, compare the last workout against the routine that was active for it and give a brief performance summary. For each exercise, note whether targets were hit, exceeded, or missed — and if I left a note on an exercise, include it and explain how it influenced the next session. Use this to give honest, specific feedback — e.g. "You hit all your bench targets", "You fell 2 reps short on lat pulldowns on the last set — consider staying at this weight", "You noted the dumbbells felt too light — going up next session". End with an overall verdict on how the session went.
+**Before proposing the next session**, output a performance summary block. Start with a header like:
+
+```
+I have the last Day B workout ("Day B - 4/3", March 9) and the matching routine. Here's the breakdown:
+
+---
+Performance Summary — Last Day B (9 March)
+```
+
+Then for each exercise, compare the last workout against the routine that was active for it. Note whether targets were hit, exceeded, or missed — and if I left a note on an exercise, include it and explain how it influenced the next session. Use this to give honest, specific feedback — e.g. "You hit all your bench targets", "You fell 2 reps short on lat pulldowns on the last set — consider staying at this weight", "You noted the dumbbells felt too light — going up next session". End with an overall verdict on how the session went.
 
 Then propose the next session, and only after that ask: **"Happy with this, or want any changes?"**
+
+## Weight selection
+
+**All weights are in kg — never use lbs.** Before setting any weight, read `weights.md` — it lists the exact available weights for each equipment type (cable, lat pulldown, barbell, etc.). Only use values from that file. If the ideal progression weight isn't available, pick the closest option:
+- If the next weight up is available, use it.
+- If not, use the nearest **lower** weight and compensate with more reps or an extra set.
+- Alternatively, use the nearest **higher** weight with fewer reps or sets — whichever makes more sense given the exercise and progression context.
 
 Follow these progression rules:
 
@@ -85,7 +101,7 @@ After outputting the workout, ask: **"Happy with this, or want any changes?"**
 
 - If they want changes, apply them and ask again.
 - Once they're happy, ask: **"Should I create a new routine in Hevy?"**
-- If yes, fetch the existing routine using `get-routines` to find the matching Day X routine, then call `create-routine` with the new exercises and sets. The name of the routine should be "Day X - DAY/MONTH". Use the `exerciseTemplateId` values already seen in the last workout data — no need to look them up again. Set `reps` and `repRange: {start: reps, end: reps}` to the target rep count. Set `weightKg` to the target weight. For half-rep finisher sets, add them as additional sets with `reps` set to the target half-rep count.
+- If yes, fetch the existing routine using `get-routines` to find the matching Day X routine. First, **rename the old routine** by calling `update-routine` to append "-OLD" to its title (e.g. "Day B - 4/3" becomes "Day B - 4/3-OLD"). Then call `create-routine` with the new exercises and sets. The name of the routine should be "Day X - DAY/MONTH". Use the `exerciseTemplateId` values already seen in the last workout data — no need to look them up again. Set `reps` and `repRange: {start: reps, end: reps}` to the target rep count. Set `weightKg` to the target weight. For half-rep finisher sets, add them as additional sets with `reps` set to the target half-rep count.
 
   **Always populate the notes field for every exercise** — never leave it blank. The note should be a compact summary useful at-a-glance during the session. Include: sets × rep range, any half-rep instructions, and a short cue about progression or intent. Examples:
   - `"3 × 8–10; last set + 3 half reps (bottom); progressed from 25kg"`
