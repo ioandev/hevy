@@ -20,6 +20,8 @@ I have the last Day B workout ("Day B - 4/3", March 9) and the matching routine.
 Performance Summary — Last Day B (9 March)
 ```
 
+**Missing or extra sets:** If the logged workout has fewer sets than the routine prescribed for an exercise (or more), and there's no note explaining why, **ask me before continuing** — e.g. "Hammer Curl shows 2 logged sets but the routine had 3 — did you skip a set or forget to log it?" Base the next session on my answer, not on assumptions.
+
 Then for each exercise, compare the last workout against the routine that was active for it. Note whether targets were hit, exceeded, or missed — and if I left a note on an exercise, include it and explain how it influenced the next session. Use this to give honest, specific feedback — e.g. "You hit all your bench targets", "You fell 2 reps short on lat pulldowns on the last set — consider staying at this weight", "You noted the dumbbells felt too light — going up next session". End with an overall verdict on how the session went.
 
 Then propose the next session, and only after that ask: **"Happy with this, or want any changes?"**
@@ -65,6 +67,7 @@ The routine file may include a **Partial Reps?** column. General rules that appl
 - **3–5 half reps maximum** — go straight from full reps to partials with no rest-pause.
 - Where the column specifies a position (e.g. "bottom-half", "stretched position"), use that; it determines where in the ROM the partial is performed.
 - Exercises marked "No" in the partial reps column should always be full ROM — no exceptions.
+- **Full ROM always trumps partials for progression purposes.** If the routine prescribed half reps but I did full-ROM reps instead and hit the rep range, that's equal or better — progress me normally based on the full-ROM performance. Never hold me at the same weight/reps just because I skipped partials. Partials are a bonus, not a gate.
 
 ## Cycling (every session)
 
