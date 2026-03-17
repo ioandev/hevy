@@ -79,6 +79,62 @@ Include this in the proposed workout output and in the Hevy routine when creatin
 
 ---
 
+## Should this routine be regenerated?
+
+After fetching the last workout and the current routine for this day type, **compare them before doing any work** to see if the routine already reflects the last workout's performance.
+
+### How to score similarity
+
+Compare the current routine against the last workout, exercise by exercise (ignoring warm-up sets and cycling). For each exercise present in both, check whether the **working weight** matches (within 2.5kg). Count how many exercises match:
+
+- **3+ exercises match on weight** → the routine is likely already up to date.
+- **2 exercises match** → borderline — flag it but lean toward asking.
+- **0–1 exercises match** → the routine is stale, proceed without asking.
+
+Things that do **not** count as differences:
+- Missing or extra warm-up sets
+- A skipped final set or half-rep set
+- 1–2 exercises missing entirely (the user may have skipped them)
+- Minor rep count differences (e.g. routine says 10, workout logged 8)
+
+Things that **do** count as differences:
+- Working weights differ by more than 2.5kg on multiple exercises
+- Exercises in the routine that weren't in the workout at all **and** have different weights from any prior session
+- Completely different exercise selection (different movements, not just missing ones)
+
+### What to do
+
+If the score indicates the routine is already up to date (3+ weight matches), **ask before continuing**:
+> "The current Day X routine already looks updated — X out of Y exercises match the weights from your last workout. Do you still want me to generate a new one?"
+
+Only proceed if the user confirms. If the routine is clearly stale (0–1 matches), skip this check and proceed normally.
+
+## Routine date — how to pick the right date for the new routine title
+
+The routine title must reflect the date the session will actually take place, **not** the date you're generating it. Always calculate it fresh:
+
+- Workout days are **Monday, Wednesday, Friday** only.
+- Day types alternate: A → B → A → B → …
+- Look at today's date and the last workout (which you already fetched). The last workout title tells you what day type was last done and when.
+- The **next occurrence** of this day type is the first workout weekday (Mon/Wed/Fri) where this day type falls in the alternating sequence, starting from the day after the last workout.
+
+**Example:** Today is Wednesday and the user just did Day A. The alternation from here is:
+- Friday → Day B
+- Monday → Day A ← next time Day A comes up
+- Wednesday → Day B
+
+So the new Day A routine should be titled `Day A - DD/MM` using **next Monday's date**.
+
+**Example:** Today is Friday and the user just did Day B. The alternation:
+- Monday → Day A
+- Wednesday → Day B ← next time Day B comes up
+
+So the new Day B routine should be titled `Day B - DD/MM` using **next Wednesday's date**.
+
+**Title format:** `Day X - DD/MM` (no year, no weekday name). E.g. `Day A - 23/3`, `Day B - 25/3`.
+
+---
+
 Output format:
 - Exercise name
 - Sets × Reps (with weight)
@@ -104,7 +160,7 @@ After outputting the workout, ask: **"Happy with this, or want any changes?"**
 
 - If they want changes, apply them and ask again.
 - Once they're happy, ask: **"Should I create a new routine in Hevy?"**
-- If yes, fetch the existing routine using `get-routines` to find the matching Day X routine. First, **rename the old routine** by calling `update-routine` to append "-OLD" to its title (e.g. "Day B - 4/3" becomes "Day B - 4/3-OLD"). Then call `create-routine` with the new exercises and sets. The name of the routine should be "Day X - DAY/MONTH". Use the `exerciseTemplateId` values already seen in the last workout data — no need to look them up again. Set `reps` and `repRange: {start: reps, end: reps}` to the target rep count. Set `weightKg` to the target weight. For half-rep finisher sets, add them as additional sets with `reps` set to the target half-rep count.
+- If yes, fetch the existing routine using `get-routines` to find the matching Day X routine. First, **rename the old routine** by calling `update-routine` to append "-OLD" to its title (e.g. "Day B - 4/3" becomes "Day B - 4/3-OLD"). Then call `create-routine` with the new exercises and sets. **Use the date calculated in the "Routine date" section above** — always the next upcoming workout weekday for this day type, never today's date and never reusing the old routine's date. Use the `exerciseTemplateId` values already seen in the last workout data — no need to look them up again. Set `reps` and `repRange: {start: reps, end: reps}` to the target rep count. Set `weightKg` to the target weight. For half-rep finisher sets, add them as additional sets with `reps` set to the target half-rep count.
 
   **Always populate the notes field for every exercise** — never leave it blank. The note should be a compact summary useful at-a-glance during the session. Include: sets × rep range, any half-rep instructions, and a short cue about progression or intent. Examples:
   - `"3 × 8–10; last set + 3 half reps (bottom); progressed from 25kg"`
